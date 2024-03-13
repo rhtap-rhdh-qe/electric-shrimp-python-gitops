@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: electric-shrimp-python-gitops
+  description: This is GitOps manifest for electric-shrimp-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: electric-shrimp-python
+    janus-idp.io/tekton: electric-shrimp-python 
+    backstage.io/kubernetes-id: electric-shrimp-python 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:electric-shrimp-python
